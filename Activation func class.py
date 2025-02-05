@@ -3,7 +3,8 @@ import nnfs
 from nnfs.datasets import spiral_data
 from abc import ABC, abstractmethod
 import matplotlib.pyplot as plt     # 그래프 보려고 사용
-
+# Reshape 4D tensor (C, Z, H, W) -> (C*Z, H, W)
+        x = x.view(x.size(0), -1, x.size(3), x.size(4)) 
 nnfs.init()  # 랜덤시드들이 고정됨 /이 기준으로만 랜덤값이 설정됨
 
 # Define the Dense Layer!!!
